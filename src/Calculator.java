@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+
 import java.util.Objects;
 
 public class Calculator extends Application implements EventHandler<ActionEvent> {
@@ -79,86 +80,59 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
         }
         if (source == zeroButton) {
             zero();
-        }
-        else if (source == oneButton) {
+        } else if (source == oneButton) {
             one();
-        }
-        else if (source == twoButton) {
+        } else if (source == twoButton) {
             two();
-        }
-        else if (source == threeButton) {
+        } else if (source == threeButton) {
             three();
-        }
-        else if (source == fourButton) {
+        } else if (source == fourButton) {
             four();
-        }
-        else if (source == fiveButton) {
+        } else if (source == fiveButton) {
             five();
-        }
-        else if (source == sixButton) {
+        } else if (source == sixButton) {
             six();
-        }
-        else if (source == sevenButton) {
+        } else if (source == sevenButton) {
             seven();
-        }
-        else if (source == eightButton) {
+        } else if (source == eightButton) {
             eight();
-        }
-        else if (source == nineButton) {
+        } else if (source == nineButton) {
             nine();
-        }
-        else if (source == pointButton) {
+        } else if (source == pointButton) {
             point();
-        }
-        else if (source == addButton) {
+        } else if (source == addButton) {
             add();
-        }
-        else if (source == subtractButton) {
+        } else if (source == subtractButton) {
             subtract();
-        }
-        else if (source == multiplyButton) {
+        } else if (source == multiplyButton) {
             multiply();
-        }
-        else if (source == divideButton) {
+        } else if (source == divideButton) {
             divide();
-        }
-        else if (source == equalButton) {
+        } else if (source == equalButton) {
             equal();
-        }
-        else if (source == changeSignButton) {
+        } else if (source == changeSignButton) {
             negate();
-        }
-        else if (source == clearButton) {
+        } else if (source == clearButton) {
             clear();
-        }
-        else if (source == allClearButton) {
+        } else if (source == allClearButton) {
             allClear();
-        }
-        else if (source == sinButton) {
+        } else if (source == sinButton) {
             sine();
-        }
-        else if (source == cosButton) {
+        } else if (source == cosButton) {
             cosine();
-        }
-        else if (source == tanButton) {
+        } else if (source == tanButton) {
             tangent();
-        }
-        else if (source == cotButton) {
+        } else if (source == cotButton) {
             cotangent();
-        }
-        else if (source == logButton) {
+        } else if (source == logButton) {
             logarithm();
-        }
-        else if (source == logNButton) {
+        } else if (source == logNButton) {
             naturalLog();
-        }
-        else if (source == powButton) {
+        } else if (source == powButton) {
             power();
-        }
-        else if (source == sqrButton) {
+        } else if (source == sqrButton) {
             squareRoot();
-        }
-        else if (source == expButton) {
+        } else if (source == expButton) {
             exp();
         }
 
@@ -167,7 +141,7 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
     private void defineLayout() {
         layout = new GridPane();
         layout.setAlignment(Pos.TOP_CENTER);
-        layout.setPadding(new Insets(20,20,20,20));
+        layout.setPadding(new Insets(20, 20, 20, 20));
         layout.setHgap(15);
         layout.setVgap(15);
     }
@@ -264,7 +238,7 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
     }
 
     private void initializeCalculator() {
-        CalculatorViewer = new Scene(layout,300,500);
+        CalculatorViewer = new Scene(layout, 300, 500);
         layout.getStyleClass().add("calculator-background");
         CalculatorViewer.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
         CalculatorWindow.setResizable(false);
@@ -279,7 +253,7 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
     private Button makeButton(String s) {
         Button button = new Button(s);
         button.setTextAlignment(TextAlignment.CENTER);
-        button.setPrefSize(50,50);
+        button.setPrefSize(50, 50);
         button.setOnAction(this);
         button.getStyleClass().add("calculator-button");
         return button;
@@ -287,15 +261,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void zero() {
         if (output.getText().matches("[-]0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("0");
             hasPoint = false;
-        }
-        else if (!output.getText().matches("0")) {
+        } else if (!output.getText().matches("0")) {
             output.appendText("0");
         }
         lastChar = '0';
@@ -303,15 +276,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void one() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("1");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("1");
         }
         lastChar = '1';
@@ -319,15 +291,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void two() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("2");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("2");
         }
         lastChar = '2';
@@ -335,15 +306,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void three() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("3");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("3");
         }
         lastChar = '3';
@@ -351,15 +321,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void four() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("4");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("4");
         }
         lastChar = '4';
@@ -367,15 +336,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void five() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("5");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("5");
         }
         lastChar = '5';
@@ -383,15 +351,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void six() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("6");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("6");
         }
         lastChar = '6';
@@ -399,15 +366,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void seven() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("7");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("7");
         }
         lastChar = '7';
@@ -415,15 +381,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void eight() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("8");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("8");
         }
         lastChar = '8';
@@ -431,15 +396,14 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
 
     private void nine() {
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("9");
             hasPoint = false;
-        }
-        else {
+        } else {
             output.appendText("9");
         }
         lastChar = '9';
@@ -450,14 +414,13 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
          * If a point was not already entered, append.
          * Ensure hasPoint is true. */
         if (output.getText().matches("0")
-                || lastChar=='+'
-                || lastChar=='-'
-                || lastChar=='*'
-                || lastChar=='/'
-                || lastChar=='=') {
+                || lastChar == '+'
+                || lastChar == '-'
+                || lastChar == '*'
+                || lastChar == '/'
+                || lastChar == '=') {
             output.setText("0.");
-        }
-        else if (!hasPoint) {
+        } else if (!hasPoint) {
             output.appendText(".");
         }
         hasPoint = true;
@@ -510,6 +473,8 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
                 return;
             case '.':
                 break;
+            case 'p':
+                return;
             default:
 
         }
@@ -540,16 +505,20 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
                 }
                 answer = operand1 / operand2;
                 break;
+
+            case 'p':
+                operand2 = Double.parseDouble(output.getText());
+                answer = Math.pow(operand1, operand2);
+                break;
             default:
                 /* Section of code should not be reachable. */
-                System.out.println("ERROR: lastChar: "+lastChar);
+                System.out.println("ERROR: lastChar: " + lastChar);
                 System.out.println("ERROR: operator: " + operator);
         }
 
-        if (answer - (int)answer == 0.0) {
-            output.setText(Integer.toString((int)answer));
-        }
-        else {
+        if (answer - (int) answer == 0.0) {
+            output.setText(Integer.toString((int) answer));
+        } else {
             output.setText(Double.toString(answer));
         }
         lastChar = '=';
@@ -562,15 +531,12 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
                 || lastChar == '*'
                 || lastChar == '/') {
             return;
-        }
-        else if (Double.parseDouble(output.getText()) == 0.0) {
+        } else if (Double.parseDouble(output.getText()) == 0.0) {
             return;
-        }
-        else if (output.getText().charAt(0) == '-') {
-            output.setText(output.getText().substring(1,output.getText().length()));
-        }
-        else {
-            output.setText("-"+output.getText());
+        } else if (output.getText().charAt(0) == '-') {
+            output.setText(output.getText().substring(1, output.getText().length()));
+        } else {
+            output.setText("-" + output.getText());
         }
     }
 
@@ -597,10 +563,9 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
             result = Math.round(result);
         }
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
@@ -614,10 +579,9 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
             result = Math.round(result);
         }
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
@@ -631,10 +595,9 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
             result = Math.round(result);
         }
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
@@ -648,10 +611,9 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
             result = Math.round(result);
         }
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
@@ -664,10 +626,9 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
             result = Math.round(result);
         }
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
@@ -679,35 +640,27 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
             result = Math.round(result);
         }
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
 
     private void power() {
-        double base = operand1;
-        double exponent = Double.parseDouble(output.getText());
-        double result = Math.pow(base, exponent);
+        operand1 = Double.parseDouble(output.getText());
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
-            output.setText(Double.toString(result));
-        }
-        lastChar = 'p'; // Assigning a symbol to represent the operation in the logic flow
+        lastChar = 'p';
+        operator = 'p';
+        output.setText("");
     }
 
     private void squareRoot() {
         double result = Math.sqrt(Double.parseDouble(output.getText()));
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
     }
@@ -715,13 +668,11 @@ public class Calculator extends Application implements EventHandler<ActionEvent>
     private void exp() {
         double result = Math.exp(Double.parseDouble(output.getText()));
 
-        if (result - (int)result == 0.0) {
-            output.setText(Integer.toString((int)result));
-        }
-        else {
+        if (result - (int) result == 0.0) {
+            output.setText(Integer.toString((int) result));
+        } else {
             output.setText(Double.toString(result));
         }
-        lastChar = 'e'; // Assigning a symbol to represent the operation in the logic flow
     }
 
 }
